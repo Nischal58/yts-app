@@ -1,8 +1,9 @@
 <template>
 
-  
+
   <NavBar/>
-<h1>hello</h1>
+  
+<router-view></router-view>
       <div class="movie-card" v-for="item in movieList" :key="item.id">
 
       <img :src="item.background_image_original">
@@ -23,7 +24,8 @@ export default {
   
   data(){
     return{
-      movieList:[]
+      movieList:[],
+      search:''
     }
   },
 
@@ -35,6 +37,15 @@ export default {
   components: {
     NavBar
   },
+  methods:{
+    getAllData(){
+      fetch("https://yts.mx/api/v2/list_movies.json")
+      .then(response=>response.json())
+      .then(data=>{
+        this.movieList=data
+      })
+    }
+  }
 
 }
 </script>
@@ -64,5 +75,9 @@ export default {
   width:200px;
   display:inline-block ;
   margin-left: 10px;
+}
+
+body{
+  background-color:black;
 }
 </style>

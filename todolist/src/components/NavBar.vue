@@ -1,14 +1,19 @@
 <template>
+    <router-view>
   <div class="container">
-    <li>YTS MOVIES</li>
-    <li>Featured</li>
-    <li>Movies</li>
-    <li>Trending</li>
+    <router-link to="/">YTS MOVIES</router-link>
+    <router-link to="/about">FEATURED MOVIES</router-link>
 
   </div>
+  </router-view>
+
+
 
 </template> 
 <script>
+
+
+
 
 export default{
     name:"NavBar"
@@ -23,9 +28,14 @@ export default{
   justify-content: space-around;
   margin-bottom: 50px;
   width: 50%;
+  background-color: green;
+  
 }
 li{
   list-style-type: none;
+  color: white;
+  
+ 
 
 }
 </style>
